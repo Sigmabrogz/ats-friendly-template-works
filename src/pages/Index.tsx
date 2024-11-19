@@ -1,13 +1,16 @@
 import { useState } from "react";
 import TemplateSelector from "@/components/ResumeBuilder/TemplateSelector";
 import ModernMinimal from "@/components/ResumeBuilder/templates/ModernMinimal";
+import ProfessionalClassic from "@/components/ResumeBuilder/templates/ProfessionalClassic";
+import CreativeTech from "@/components/ResumeBuilder/templates/CreativeTech";
+import BoldImpact from "@/components/ResumeBuilder/templates/BoldImpact";
+import ElegantSimple from "@/components/ResumeBuilder/templates/ElegantSimple";
 import { ResumeData, ResumeTemplate } from "@/types/resume";
 
 const Index = () => {
   const [selectedTemplate, setSelectedTemplate] =
     useState<ResumeTemplate>("modern-minimal");
 
-  // Sample data - in a real app this would come from a form
   const sampleResumeData: ResumeData = {
     template: "modern-minimal",
     personalInfo: {
@@ -67,6 +70,23 @@ const Index = () => {
     ],
   };
 
+  const renderTemplate = () => {
+    switch (selectedTemplate) {
+      case "modern-minimal":
+        return <ModernMinimal data={sampleResumeData} />;
+      case "professional-classic":
+        return <ProfessionalClassic data={sampleResumeData} />;
+      case "creative-tech":
+        return <CreativeTech data={sampleResumeData} />;
+      case "bold-impact":
+        return <BoldImpact data={sampleResumeData} />;
+      case "elegant-simple":
+        return <ElegantSimple data={sampleResumeData} />;
+      default:
+        return <ModernMinimal data={sampleResumeData} />;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-resume-light">
       <header className="bg-white shadow-sm">
@@ -90,7 +110,7 @@ const Index = () => {
           </div>
 
           <div className="bg-white shadow rounded-lg p-6">
-            <ModernMinimal data={sampleResumeData} />
+            {renderTemplate()}
           </div>
         </div>
       </main>
