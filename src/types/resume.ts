@@ -3,7 +3,8 @@ export type ResumeTemplate =
   | "professional-classic"
   | "creative-tech"
   | "bold-impact"
-  | "elegant-simple";
+  | "elegant-simple"
+  | "dynamic-tech";
 
 export interface Education {
   school: string;

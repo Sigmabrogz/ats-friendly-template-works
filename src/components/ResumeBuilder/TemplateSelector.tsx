@@ -33,6 +33,11 @@ const templates: { id: ResumeTemplate; name: string; description: string }[] = [
     name: "Elegant Simple",
     description: "Sophisticated minimalist design",
   },
+  {
+    id: "dynamic-tech",
+    name: "Dynamic Tech",
+    description: "Ultra-modern design with dynamic gradients and tech-inspired elements",
+  },
 ];
 
 const TemplateSelector = ({

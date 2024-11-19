@@ -5,6 +5,7 @@ import ProfessionalClassic from "@/components/ResumeBuilder/templates/Profession
 import CreativeTech from "@/components/ResumeBuilder/templates/CreativeTech";
 import BoldImpact from "@/components/ResumeBuilder/templates/BoldImpact";
 import ElegantSimple from "@/components/ResumeBuilder/templates/ElegantSimple";
+import DynamicTech from "@/components/ResumeBuilder/templates/DynamicTech";
 import HeroSection from "@/components/ResumeBuilder/HeroSection";
 import { ResumeData, ResumeTemplate } from "@/types/resume";
 
@@ -127,6 +128,8 @@ const Index = () => {
         return <BoldImpact data={sampleResumeData} />;
       case "elegant-simple":
         return <ElegantSimple data={sampleResumeData} />;
+      case "dynamic-tech":
+        return <DynamicTech data={sampleResumeData} />;
       default:
         return <ModernMinimal data={sampleResumeData} />;
     }
