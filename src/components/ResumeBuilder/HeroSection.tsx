@@ -7,33 +7,40 @@ const HeroSection = () => {
   const { toast } = useToast();
 
   const handleDownload = () => {
-    // Create a dummy CV file URL (replace this with your actual CV file)
     const cvUrl = "/Ritesh_Kushwaha_CV.pdf";
 
-    // Create a temporary link element
-    const link = document.createElement("a");
-    link.href = cvUrl;
-    link.download = "Ritesh_Kushwaha_CV.pdf";
-    
-    // Append to document, trigger click, and remove
-    document.body.appendChild(link);
-    
-    // Try to trigger the download
-    try {
-      link.click();
-      toast({
-        title: "Download Started",
-        description: "Your CV download should begin shortly.",
+    // Check if file exists
+    fetch(cvUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('CV file not found');
+        }
+        return response.blob();
+      })
+      .then(blob => {
+        // Create a temporary link element
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "Ritesh_Kushwaha_CV.pdf";
+        
+        // Append to document, trigger click, and remove
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        toast({
+          title: "Download Started",
+          description: "Your CV download should begin shortly.",
+        });
+      })
+      .catch(error => {
+        toast({
+          variant: "destructive",
+          title: "Download Failed",
+          description: "CV file not found. Please try again later or contact for support.",
+        });
+        console.error('Download error:', error);
       });
-    } catch (error) {
-      toast({
-        variant: "destructive",
-        title: "Download Failed",
-        description: "Please try again later or contact for support.",
-      });
-    } finally {
-      document.body.removeChild(link);
-    }
   };
 
   return (
