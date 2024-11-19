@@ -77,8 +77,7 @@ const BoldImpact = ({ data }: { data: ResumeData }) => {
             ))}
           </section>
 
-          {/* Skills and Languages in horizontal layout */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4">
             <section className="bg-gray-800 p-6 rounded-xl border border-gray-700">
               <h2 className="text-2xl font-bold mb-4">Skills</h2>
               <div className="space-y-3">
