@@ -2,143 +2,104 @@ import { ResumeData } from "@/types/resume";
 
 const BoldImpact = ({ data }: { data: ResumeData }) => {
   return (
-    <div className="max-w-[21cm] mx-auto bg-white shadow-lg animate-template-fade">
-      {/* Header with bold design */}
-      <header className="bg-resume-primary text-white p-8">
-        <h1 className="text-5xl font-black tracking-tight mb-4">
-          {data.personalInfo.firstName}
-          <br />
-          {data.personalInfo.lastName}
-        </h1>
-        <p className="text-2xl font-light mb-6">{data.personalInfo.title}</p>
-        <div className="grid grid-cols-3 gap-4 text-sm">
-          <div className="border-l-2 border-resume-accent pl-3">
-            <p className="text-resume-muted">EMAIL</p>
-            <p>{data.personalInfo.email}</p>
-          </div>
-          <div className="border-l-2 border-resume-accent pl-3">
-            <p className="text-resume-muted">PHONE</p>
-            <p>{data.personalInfo.phone}</p>
-          </div>
-          <div className="border-l-2 border-resume-accent pl-3">
-            <p className="text-resume-muted">LOCATION</p>
-            <p>{data.personalInfo.location}</p>
+    <div className="max-w-[21cm] mx-auto bg-gradient-to-br from-gray-900 to-gray-800 text-white p-8 shadow-lg animate-template-fade">
+      {/* Header with bold asymmetric design */}
+      <header className="relative mb-12">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-bl-[80px]"></div>
+        <div className="relative z-10">
+          <h1 className="text-7xl font-black tracking-tighter mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+            {data.personalInfo.firstName}
+            <br />
+            {data.personalInfo.lastName}
+          </h1>
+          <p className="text-2xl font-light text-gray-400 mb-6">{data.personalInfo.title}</p>
+          <div className="flex flex-wrap gap-6 text-sm">
+            <div className="bg-gray-700/50 px-4 py-2 rounded-lg">
+              {data.personalInfo.email}
+            </div>
+            <div className="bg-gray-700/50 px-4 py-2 rounded-lg">
+              {data.personalInfo.phone}
+            </div>
+            <div className="bg-gray-700/50 px-4 py-2 rounded-lg">
+              {data.personalInfo.location}
+            </div>
           </div>
         </div>
       </header>
 
-      <div className="p-8">
-        {/* Summary */}
-        <section className="mb-8 border-l-4 border-resume-accent pl-6">
-          <p className="text-resume-secondary leading-relaxed">
-            {data.personalInfo.summary}
-          </p>
-        </section>
-
-        {/* Experience */}
-        <section className="mb-8">
-          <h2 className="text-3xl font-black text-resume-primary mb-6 uppercase">
-            Experience
-          </h2>
-          {data.experience.map((exp, index) => (
-            <div key={index} className="mb-6">
-              <div className="flex justify-between items-start border-b-2 border-resume-muted pb-2 mb-4">
-                <div>
-                  <h3 className="text-xl font-bold text-resume-primary">
-                    {exp.position}
-                  </h3>
-                  <p className="text-resume-accent font-medium">{exp.company}</p>
-                </div>
-                <p className="text-resume-secondary font-bold">
-                  {exp.startDate} - {exp.endDate}
-                </p>
-              </div>
-              <p className="text-resume-secondary mb-3">{exp.description}</p>
-              <ul className="space-y-2">
-                {exp.achievements.map((achievement, i) => (
-                  <li
-                    key={i}
-                    className="text-resume-secondary flex items-center gap-2"
-                  >
-                    <span className="w-2 h-2 bg-resume-accent"></span>
-                    {achievement}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </section>
-
-        <div className="grid grid-cols-2 gap-8">
-          {/* Education */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+        {/* Main content */}
+        <div className="md:col-span-8 space-y-8">
           <section>
-            <h2 className="text-3xl font-black text-resume-primary mb-6 uppercase">
-              Education
+            <h2 className="text-3xl font-bold mb-6 flex items-center">
+              <span className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center text-gray-900 mr-4">
+                Ex
+              </span>
+              Experience
             </h2>
+            {data.experience.map((exp, index) => (
+              <div key={index} className="mb-8 last:mb-0 relative">
+                <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-yellow-500 to-orange-600"></div>
+                <div className="pl-6">
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <h3 className="text-xl font-bold">{exp.position}</h3>
+                      <p className="text-yellow-500">{exp.company}</p>
+                    </div>
+                    <span className="text-sm text-gray-400">{exp.startDate} - {exp.endDate}</span>
+                  </div>
+                  <p className="text-gray-400 mb-4">{exp.description}</p>
+                  <ul className="space-y-2">
+                    {exp.achievements.map((achievement, i) => (
+                      <li key={i} className="text-gray-400 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                        {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </section>
+        </div>
+
+        {/* Sidebar */}
+        <div className="md:col-span-4 space-y-8">
+          <section className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+            <h2 className="text-2xl font-bold mb-4">Education</h2>
             {data.education.map((edu, index) => (
-              <div
-                key={index}
-                className="mb-4 border-l-2 border-resume-accent pl-4"
-              >
-                <h3 className="font-bold text-resume-primary text-lg">
-                  {edu.school}
-                </h3>
-                <p className="text-resume-secondary">
-                  {edu.degree} in {edu.fieldOfStudy}
-                </p>
-                <p className="text-resume-accent">
-                  {edu.startDate} - {edu.endDate}
-                </p>
+              <div key={index} className="mb-4 last:mb-0">
+                <h3 className="font-bold">{edu.school}</h3>
+                <p className="text-gray-400">{edu.degree} in {edu.fieldOfStudy}</p>
+                <p className="text-sm text-yellow-500">{edu.startDate} - {edu.endDate}</p>
               </div>
             ))}
           </section>
 
-          {/* Skills and Languages */}
-          <div>
-            <section className="mb-8">
-              <h2 className="text-3xl font-black text-resume-primary mb-6 uppercase">
-                Skills
-              </h2>
-              <div className="grid grid-cols-2 gap-4">
-                {data.skills.map((skill, index) => (
-                  <div
-                    key={index}
-                    className="border-b-2 border-resume-muted pb-2"
-                  >
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium text-resume-primary">
-                        {skill.name}
-                      </span>
-                      <span className="text-resume-accent">{skill.level}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
+          <section className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+            <h2 className="text-2xl font-bold mb-4">Skills</h2>
+            <div className="flex flex-wrap gap-2">
+              {data.skills.map((skill, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-900 px-3 py-1 rounded-lg text-sm border border-gray-700"
+                >
+                  <span>{skill.name}</span>
+                  <span className="text-yellow-500 ml-2">{skill.level}</span>
+                </div>
+              ))}
+            </div>
+          </section>
 
-            <section>
-              <h2 className="text-3xl font-black text-resume-primary mb-6 uppercase">
-                Languages
-              </h2>
-              <div className="grid grid-cols-2 gap-4">
-                {data.languages.map((lang, index) => (
-                  <div
-                    key={index}
-                    className="border-b-2 border-resume-muted pb-2"
-                  >
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium text-resume-primary">
-                        {lang.language}
-                      </span>
-                      <span className="text-resume-accent">
-                        {lang.proficiency}
-                      </span>
-                    </div>
-                  </div>
-                ))}
+          <section className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+            <h2 className="text-2xl font-bold mb-4">Languages</h2>
+            {data.languages.map((lang, index) => (
+              <div key={index} className="flex justify-between items-center mb-2 last:mb-0">
+                <span>{lang.language}</span>
+                <span className="text-yellow-500">{lang.proficiency}</span>
               </div>
-            </section>
-          </div>
+            ))}
+          </section>
         </div>
       </div>
     </div>

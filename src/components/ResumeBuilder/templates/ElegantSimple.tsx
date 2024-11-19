@@ -4,56 +4,58 @@ const ElegantSimple = ({ data }: { data: ResumeData }) => {
   return (
     <div className="max-w-[21cm] mx-auto bg-white p-12 shadow-lg animate-template-fade">
       {/* Header with elegant minimalist design */}
-      <header className="text-center mb-12">
-        <h1 className="text-4xl font-light text-resume-primary tracking-wide mb-4">
-          {data.personalInfo.firstName} {data.personalInfo.lastName}
+      <header className="text-center mb-16 relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-rose-200 via-rose-300 to-rose-200"></div>
+        <h1 className="text-5xl font-light tracking-[0.2em] text-gray-800 mt-8 mb-4">
+          {data.personalInfo.firstName}
+          <span className="font-extralight"> {data.personalInfo.lastName}</span>
         </h1>
-        <p className="text-xl text-resume-secondary mb-4 italic">
+        <p className="text-xl text-gray-600 mb-6 font-light tracking-widest">
           {data.personalInfo.title}
         </p>
-        <div className="flex justify-center gap-6 text-sm text-resume-secondary">
+        <div className="flex justify-center gap-8 text-sm text-gray-600 font-light tracking-wider">
           <span>{data.personalInfo.email}</span>
-          <span>|</span>
+          <span className="text-rose-300">•</span>
           <span>{data.personalInfo.phone}</span>
-          <span>|</span>
+          <span className="text-rose-300">•</span>
           <span>{data.personalInfo.location}</span>
         </div>
       </header>
 
-      {/* Summary */}
-      <section className="mb-12 max-w-2xl mx-auto text-center">
-        <p className="text-resume-secondary leading-relaxed italic">
+      {/* Summary with elegant typography */}
+      <section className="mb-16 max-w-2xl mx-auto text-center">
+        <p className="text-gray-600 leading-relaxed font-light tracking-wide">
           {data.personalInfo.summary}
         </p>
       </section>
 
       {/* Experience */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-light text-resume-primary text-center mb-8 tracking-wide">
-          Professional Experience
+      <section className="mb-16">
+        <h2 className="text-2xl font-light text-gray-800 text-center mb-8 tracking-[0.2em]">
+          EXPERIENCE
         </h2>
         {data.experience.map((exp, index) => (
           <div
             key={index}
-            className="mb-8 pb-8 border-b border-resume-muted last:border-0"
+            className="mb-12 last:mb-0 max-w-3xl mx-auto text-center"
           >
-            <div className="text-center mb-4">
-              <h3 className="font-medium text-resume-primary text-xl mb-1">
+            <div className="mb-4">
+              <h3 className="font-medium text-gray-800 text-xl mb-1">
                 {exp.position}
               </h3>
-              <p className="text-resume-accent">{exp.company}</p>
-              <p className="text-sm text-resume-secondary">
+              <p className="text-rose-400">{exp.company}</p>
+              <p className="text-sm text-gray-600 tracking-wider">
                 {exp.startDate} - {exp.endDate}
               </p>
             </div>
-            <p className="text-resume-secondary text-center mb-4">
+            <p className="text-gray-600 mb-4 font-light">
               {exp.description}
             </p>
-            <ul className="max-w-2xl mx-auto">
+            <ul className="space-y-2">
               {exp.achievements.map((achievement, i) => (
                 <li
                   key={i}
-                  className="text-resume-secondary text-sm text-center mb-2"
+                  className="text-gray-600 text-sm font-light tracking-wide"
                 >
                   {achievement}
                 </li>
@@ -63,21 +65,22 @@ const ElegantSimple = ({ data }: { data: ResumeData }) => {
         ))}
       </section>
 
-      <div className="grid grid-cols-2 gap-12">
+      {/* Two-column layout for Education and Skills */}
+      <div className="grid grid-cols-2 gap-16">
         {/* Education */}
         <section>
-          <h2 className="text-2xl font-light text-resume-primary text-center mb-8 tracking-wide">
-            Education
+          <h2 className="text-2xl font-light text-gray-800 text-center mb-8 tracking-[0.2em]">
+            EDUCATION
           </h2>
           {data.education.map((edu, index) => (
             <div key={index} className="mb-6 text-center">
-              <h3 className="font-medium text-resume-primary mb-1">
+              <h3 className="font-medium text-gray-800 mb-1">
                 {edu.school}
               </h3>
-              <p className="text-resume-secondary">
+              <p className="text-gray-600 font-light">
                 {edu.degree} in {edu.fieldOfStudy}
               </p>
-              <p className="text-sm text-resume-accent">
+              <p className="text-sm text-rose-400 tracking-wider">
                 {edu.startDate} - {edu.endDate}
               </p>
             </div>
@@ -85,32 +88,32 @@ const ElegantSimple = ({ data }: { data: ResumeData }) => {
         </section>
 
         {/* Skills and Languages */}
-        <div>
-          <section className="mb-8">
-            <h2 className="text-2xl font-light text-resume-primary text-center mb-8 tracking-wide">
-              Skills
+        <div className="space-y-16">
+          <section>
+            <h2 className="text-2xl font-light text-gray-800 text-center mb-8 tracking-[0.2em]">
+              SKILLS
             </h2>
             <div className="space-y-3">
               {data.skills.map((skill, index) => (
                 <div key={index} className="text-center">
-                  <span className="text-resume-secondary">{skill.name}</span>
-                  <span className="mx-2 text-resume-accent">•</span>
-                  <span className="text-sm text-resume-accent">{skill.level}</span>
+                  <span className="text-gray-600 font-light">{skill.name}</span>
+                  <span className="mx-2 text-rose-300">•</span>
+                  <span className="text-sm text-rose-400">{skill.level}</span>
                 </div>
               ))}
             </div>
           </section>
 
           <section>
-            <h2 className="text-2xl font-light text-resume-primary text-center mb-8 tracking-wide">
-              Languages
+            <h2 className="text-2xl font-light text-gray-800 text-center mb-8 tracking-[0.2em]">
+              LANGUAGES
             </h2>
             <div className="space-y-3">
               {data.languages.map((lang, index) => (
                 <div key={index} className="text-center">
-                  <span className="text-resume-secondary">{lang.language}</span>
-                  <span className="mx-2 text-resume-accent">•</span>
-                  <span className="text-sm text-resume-accent">
+                  <span className="text-gray-600 font-light">{lang.language}</span>
+                  <span className="mx-2 text-rose-300">•</span>
+                  <span className="text-sm text-rose-400">
                     {lang.proficiency}
                   </span>
                 </div>
