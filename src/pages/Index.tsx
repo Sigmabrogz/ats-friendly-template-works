@@ -8,10 +8,6 @@ import ElegantSimple from "@/components/ResumeBuilder/templates/ElegantSimple";
 import HeroSection from "@/components/ResumeBuilder/HeroSection";
 import { ResumeData, ResumeTemplate } from "@/types/resume";
 
-const Index = () => {
-  const [selectedTemplate, setSelectedTemplate] =
-    useState<ResumeTemplate>("modern-minimal");
-
   const sampleResumeData: ResumeData = {
     template: "modern-minimal",
     personalInfo: {
@@ -115,6 +111,10 @@ const Index = () => {
     ],
   };
 
+const Index = () => {
+  const [selectedTemplate, setSelectedTemplate] =
+    useState<ResumeTemplate>("modern-minimal");
+
   const renderTemplate = () => {
     switch (selectedTemplate) {
       case "modern-minimal":
@@ -136,12 +136,15 @@ const Index = () => {
     <div className="min-h-screen bg-resume-light">
       <HeroSection />
       
-      <main className="w-full max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <div className="space-y-8">
+      <main className="w-full max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="space-y-12">
           <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-resume-primary mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-resume-primary mb-4">
               Choose a Template
             </h2>
+            <p className="text-resume-secondary max-w-2xl mx-auto mb-8">
+              Select from our professionally designed templates to create your perfect resume
+            </p>
             <TemplateSelector
               selectedTemplate={selectedTemplate}
               onTemplateSelect={setSelectedTemplate}
