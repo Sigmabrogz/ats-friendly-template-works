@@ -51,7 +51,7 @@ const TemplateSelector = ({
             key={template.id}
             variant="outline"
             className={cn(
-              "relative h-auto flex flex-col items-start p-6 space-y-3 transition-all text-left min-h-[140px] hover:scale-[1.02] hover:shadow-lg",
+              "relative h-auto flex flex-col items-start p-6 space-y-3 transition-all text-left min-h-[160px] w-full hover:scale-[1.02] hover:shadow-lg",
               "border-2 hover:border-resume-accent/50",
               selectedTemplate === template.id
                 ? "ring-2 ring-resume-accent bg-resume-light shadow-md border-resume-accent"
@@ -62,10 +62,10 @@ const TemplateSelector = ({
             aria-checked={selectedTemplate === template.id}
             aria-label={`Select ${template.name} template`}
           >
-            <h3 className="font-semibold text-lg text-resume-primary">
+            <h3 className="font-semibold text-lg text-resume-primary w-full">
               {template.name}
             </h3>
-            <p className="text-sm leading-relaxed text-resume-secondary break-words">
+            <p className="text-sm leading-relaxed text-resume-secondary break-words w-full whitespace-normal">
               {template.description}
             </p>
             {selectedTemplate === template.id && (
