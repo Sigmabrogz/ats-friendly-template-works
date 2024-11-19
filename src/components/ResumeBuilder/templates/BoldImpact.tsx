@@ -3,7 +3,6 @@ import { ResumeData } from "@/types/resume";
 const BoldImpact = ({ data }: { data: ResumeData }) => {
   return (
     <div className="max-w-[21cm] mx-auto bg-gradient-to-br from-gray-900 to-gray-800 text-white p-8 shadow-lg animate-template-fade">
-      {/* Header with bold asymmetric design */}
       <header className="relative mb-12">
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-bl-[80px]"></div>
         <div className="relative z-10">
@@ -64,44 +63,44 @@ const BoldImpact = ({ data }: { data: ResumeData }) => {
           </section>
         </div>
 
-        {/* Sidebar */}
-        <div className="md:col-span-4 space-y-8">
+      {/* Sidebar */}
+      <div className="md:col-span-4 space-y-8">
+        <section className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+          <h2 className="text-2xl font-bold mb-4">Education</h2>
+          {data.education.map((edu, index) => (
+            <div key={index} className="mb-4 last:mb-0">
+              <h3 className="font-bold">{edu.school}</h3>
+              <p className="text-gray-400">{edu.degree} in {edu.fieldOfStudy}</p>
+              <p className="text-sm text-yellow-500">{edu.startDate} - {edu.endDate}</p>
+            </div>
+          ))}
+        </section>
+
+        {/* Skills and Languages in horizontal layout */}
+        <div className="grid grid-cols-2 gap-4">
           <section className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-            <h2 className="text-2xl font-bold mb-4">Education</h2>
-            {data.education.map((edu, index) => (
-              <div key={index} className="mb-4 last:mb-0">
-                <h3 className="font-bold">{edu.school}</h3>
-                <p className="text-gray-400">{edu.degree} in {edu.fieldOfStudy}</p>
-                <p className="text-sm text-yellow-500">{edu.startDate} - {edu.endDate}</p>
-              </div>
-            ))}
+            <h2 className="text-2xl font-bold mb-4">Skills</h2>
+            <div className="space-y-3">
+              {data.skills.map((skill, index) => (
+                <div key={index} className="flex justify-between items-center">
+                  <span className="text-gray-400">{skill.name}</span>
+                  <span className="text-yellow-500">{skill.level}</span>
+                </div>
+              ))}
+            </div>
           </section>
 
-          <div className="grid grid-cols-1 gap-4">
-            <section className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-              <h2 className="text-2xl font-bold mb-4">Skills</h2>
-              <div className="space-y-3">
-                {data.skills.map((skill, index) => (
-                  <div key={index} className="flex justify-between items-center">
-                    <span className="text-gray-400">{skill.name}</span>
-                    <span className="text-yellow-500">{skill.level}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-              <h2 className="text-2xl font-bold mb-4">Languages</h2>
-              <div className="space-y-3">
-                {data.languages.map((lang, index) => (
-                  <div key={index} className="flex justify-between items-center">
-                    <span className="text-gray-400">{lang.language}</span>
-                    <span className="text-yellow-500">{lang.proficiency}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </div>
+          <section className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+            <h2 className="text-2xl font-bold mb-4">Languages</h2>
+            <div className="space-y-3">
+              {data.languages.map((lang, index) => (
+                <div key={index} className="flex justify-between items-center">
+                  <span className="text-gray-400">{lang.language}</span>
+                  <span className="text-yellow-500">{lang.proficiency}</span>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
       </div>
     </div>
