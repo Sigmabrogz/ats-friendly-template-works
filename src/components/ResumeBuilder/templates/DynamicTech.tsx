@@ -99,46 +99,43 @@ const DynamicTech = ({ data }: { data: ResumeData }) => {
               ))}
             </section>
 
-            {/* Skills and Languages in horizontal layout */}
             <div className="grid grid-cols-2 gap-4">
               <section className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10">
-                <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <span className="bg-gradient-to-r from-purple-500 to-pink-500 w-8 h-8 rounded-lg flex items-center justify-center">
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                  <span className="bg-gradient-to-r from-purple-500 to-pink-500 w-10 h-10 rounded-xl flex items-center justify-center">
                     Sk
                   </span>
                   Skills
                 </h2>
-                <div className="space-y-2">
+                <div className="flex flex-wrap gap-2">
                   {data.skills.map((skill, index) => (
                     <div
                       key={index}
                       className="bg-white/10 px-3 py-1.5 rounded-lg text-sm border border-white/5"
                     >
-                      <span>{skill.name}</span>
-                      <span className="text-cyan-400 ml-2">{skill.level}</span>
+                      <span className="text-purple-400">{skill.name}</span>
+                      <span className="text-gray-500 ml-2">{skill.level}</span>
                     </div>
                   ))}
                 </div>
               </section>
 
               <section className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10">
-                <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <span className="bg-gradient-to-r from-pink-500 to-orange-500 w-8 h-8 rounded-lg flex items-center justify-center">
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                  <span className="bg-gradient-to-r from-pink-500 to-orange-500 w-10 h-10 rounded-xl flex items-center justify-center">
                     Lg
                   </span>
                   Languages
                 </h2>
-                <div className="space-y-2">
-                  {data.languages.map((lang, index) => (
-                    <div
-                      key={index}
-                      className="flex justify-between items-center"
-                    >
-                      <span>{lang.language}</span>
-                      <span className="text-cyan-400">{lang.proficiency}</span>
-                    </div>
-                  ))}
-                </div>
+                {data.languages.map((lang, index) => (
+                  <div
+                    key={index}
+                    className="flex justify-between items-center mb-2 last:mb-0"
+                  >
+                    <span className="text-pink-400">{lang.language}</span>
+                    <span className="text-gray-500">{lang.proficiency}</span>
+                  </div>
+                ))}
               </section>
             </div>
           </div>

@@ -3,7 +3,7 @@ import { ResumeData } from "@/types/resume";
 const BoldImpact = ({ data }: { data: ResumeData }) => {
   return (
     <div className="max-w-[21cm] mx-auto bg-gradient-to-br from-gray-900 to-gray-800 text-white p-8 shadow-lg animate-template-fade">
-      {/* Header section */}
+      {/* Header with bold asymmetric design */}
       <header className="relative mb-12">
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-bl-[80px]"></div>
         <div className="relative z-10">
@@ -28,8 +28,8 @@ const BoldImpact = ({ data }: { data: ResumeData }) => {
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+        {/* Main content */}
         <div className="md:col-span-8 space-y-8">
-          {/* Experience section */}
           <section>
             <h2 className="text-3xl font-bold mb-6 flex items-center">
               <span className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center text-gray-900 mr-4">
@@ -63,10 +63,10 @@ const BoldImpact = ({ data }: { data: ResumeData }) => {
           </section>
         </div>
 
+        {/* Sidebar */}
         <div className="md:col-span-4 space-y-8">
-          {/* Education section */}
-          <section className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-yellow-500/50 transition-all">
-            <h2 className="text-2xl font-bold mb-4 tracking-wide">Education</h2>
+          <section className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+            <h2 className="text-2xl font-bold mb-4">Education</h2>
             {data.education.map((edu, index) => (
               <div key={index} className="mb-4 last:mb-0">
                 <h3 className="font-bold">{edu.school}</h3>
@@ -76,40 +76,30 @@ const BoldImpact = ({ data }: { data: ResumeData }) => {
             ))}
           </section>
 
-          {/* Skills and Languages in a Horizontal Grid */}
           <div className="grid grid-cols-2 gap-4">
-            {/* Skills Section */}
-            <section className="col-span-1 bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-yellow-500/50 hover:bg-gray-800 hover:shadow-md transition-all">
-              <h2 className="text-2xl font-bold mb-4 tracking-wide">Skills</h2>
-              <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+            <section className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+              <h2 className="text-2xl font-bold mb-4">Skills</h2>
+              <div className="flex flex-wrap gap-2">
                 {data.skills.map((skill, index) => (
-                  <div key={index} className="flex justify-between items-center group">
-                    <span className="text-gray-400 font-medium group-hover:text-white transition-colors">
-                      {skill.name}
-                    </span>
-                    <span className="text-yellow-500 text-sm font-medium px-2 py-1 bg-yellow-500/10 rounded-full">
-                      {skill.level}
-                    </span>
+                  <div
+                    key={index}
+                    className="bg-gray-900 px-3 py-1 rounded-lg text-sm border border-gray-700"
+                  >
+                    <span>{skill.name}</span>
+                    <span className="text-yellow-500 ml-2">{skill.level}</span>
                   </div>
                 ))}
               </div>
             </section>
 
-            {/* Languages Section */}
-            <section className="col-span-1 bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-yellow-500/50 hover:bg-gray-800 hover:shadow-md transition-all">
-              <h2 className="text-2xl font-bold mb-4 tracking-wide">Languages</h2>
-              <div className="grid grid-cols-2 gap-x-4 gap-y-2">
-                {data.languages.map((lang, index) => (
-                  <div key={index} className="flex justify-between items-center group">
-                    <span className="text-gray-400 font-medium group-hover:text-white transition-colors">
-                      {lang.language}
-                    </span>
-                    <span className="text-yellow-500 text-sm font-medium px-2 py-1 bg-yellow-500/10 rounded-full">
-                      {lang.proficiency}
-                    </span>
-                  </div>
-                ))}
-              </div>
+            <section className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+              <h2 className="text-2xl font-bold mb-4">Languages</h2>
+              {data.languages.map((lang, index) => (
+                <div key={index} className="flex justify-between items-center mb-2 last:mb-0">
+                  <span>{lang.language}</span>
+                  <span className="text-yellow-500">{lang.proficiency}</span>
+                </div>
+              ))}
             </section>
           </div>
         </div>
