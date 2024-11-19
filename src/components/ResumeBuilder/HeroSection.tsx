@@ -41,8 +41,7 @@ const HeroSection = ({ selectedTemplate }: HeroSectionProps) => {
         
         <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 sm:p-6 mb-6 sm:mb-8 max-w-2xl mx-auto">
           <p className="text-gray-700 text-base sm:text-lg">
-            "When I'm not implementing real-time animal recognition systems or crafting food ordering platforms, 
-            you can find me solving problems faster than my coffee gets cold! 🚀"
+            "Plot twist: I got tired of recruiters playing 'Resume Roulette' with different formats, so I built this website! Now you can view my resume in different styles faster than you can say 'cultural fit'. Who says problem-solving can't be fun? 😎 Pick your favorite style below, and let's skip the 'which format do they prefer' drama!" 
           </p>
         </div>
       </motion.div>
