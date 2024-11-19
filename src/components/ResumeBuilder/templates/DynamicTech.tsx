@@ -107,14 +107,11 @@ const DynamicTech = ({ data }: { data: ResumeData }) => {
                   </span>
                   Skills
                 </h2>
-                <div className="flex flex-wrap gap-2">
+                <div className="grid grid-cols-1 gap-2">
                   {data.skills.map((skill, index) => (
-                    <div
-                      key={index}
-                      className="bg-white/10 px-3 py-1.5 rounded-lg text-sm border border-white/5"
-                    >
+                    <div key={index} className="flex justify-between items-center">
                       <span className="text-purple-400">{skill.name}</span>
-                      <span className="text-gray-500 ml-2">{skill.level}</span>
+                      <span className="text-gray-500">{skill.level}</span>
                     </div>
                   ))}
                 </div>
@@ -127,15 +124,14 @@ const DynamicTech = ({ data }: { data: ResumeData }) => {
                   </span>
                   Languages
                 </h2>
-                {data.languages.map((lang, index) => (
-                  <div
-                    key={index}
-                    className="flex justify-between items-center mb-2 last:mb-0"
-                  >
-                    <span className="text-pink-400">{lang.language}</span>
-                    <span className="text-gray-500">{lang.proficiency}</span>
-                  </div>
-                ))}
+                <div className="grid grid-cols-1 gap-2">
+                  {data.languages.map((lang, index) => (
+                    <div key={index} className="flex justify-between items-center">
+                      <span className="text-pink-400">{lang.language}</span>
+                      <span className="text-gray-500">{lang.proficiency}</span>
+                    </div>
+                  ))}
+                </div>
               </section>
             </div>
           </div>
