@@ -136,10 +136,10 @@ const Index = () => {
     <div className="min-h-screen bg-resume-light">
       <HeroSection />
       
-      <main className="w-full max-w-7xl mx-auto py-4 sm:py-6 px-4 sm:px-6 lg:px-8">
-        <div className="space-y-6">
-          <div>
-            <h2 className="text-lg sm:text-xl font-semibold text-resume-primary mb-4">
+      <main className="w-full max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        <div className="space-y-8">
+          <div className="text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold text-resume-primary mb-8">
               Choose a Template
             </h2>
             <TemplateSelector
