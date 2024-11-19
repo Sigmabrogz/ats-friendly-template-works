@@ -76,31 +76,30 @@ const BoldImpact = ({ data }: { data: ResumeData }) => {
             ))}
           </section>
 
-          <div className="grid grid-cols-2 gap-4">
-            <section className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-              <h2 className="text-2xl font-bold mb-4">Skills</h2>
-              <div className="grid grid-cols-1 gap-2">
-                {data.skills.map((skill, index) => (
-                  <div key={index} className="flex justify-between items-center">
-                    <span>{skill.name}</span>
-                    <span className="text-yellow-500">{skill.level}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
+          <section className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+            <h2 className="text-2xl font-bold mb-4">Skills</h2>
+            <div className="flex flex-wrap gap-2">
+              {data.skills.map((skill, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-900 px-3 py-1 rounded-lg text-sm border border-gray-700"
+                >
+                  <span>{skill.name}</span>
+                  <span className="text-yellow-500 ml-2">{skill.level}</span>
+                </div>
+              ))}
+            </div>
+          </section>
 
-            <section className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-              <h2 className="text-2xl font-bold mb-4">Languages</h2>
-              <div className="grid grid-cols-1 gap-2">
-                {data.languages.map((lang, index) => (
-                  <div key={index} className="flex justify-between items-center">
-                    <span>{lang.language}</span>
-                    <span className="text-yellow-500">{lang.proficiency}</span>
-                  </div>
-                ))}
+          <section className="bg-gray-800 p-6 rounded-xl border border-gray-700">
+            <h2 className="text-2xl font-bold mb-4">Languages</h2>
+            {data.languages.map((lang, index) => (
+              <div key={index} className="flex justify-between items-center mb-2 last:mb-0">
+                <span>{lang.language}</span>
+                <span className="text-yellow-500">{lang.proficiency}</span>
               </div>
-            </section>
-          </div>
+            ))}
+          </section>
         </div>
       </div>
     </div>
