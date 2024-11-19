@@ -6,6 +6,36 @@ Before running this project locally, ensure you have the following installed:
 - Node.js (version 16 or higher)
 - npm (comes with Node.js) or yarn
 - Git
+- Visual Studio Code (VS Code)
+
+## VS Code Setup
+
+1. **Install VS Code Extensions**
+   - Tailwind CSS IntelliSense
+   - ESLint
+   - Prettier
+   - TypeScript and JavaScript Language Features
+   - ES7+ React/Redux/React-Native snippets
+
+2. **Open Project in VS Code**
+```bash
+code resume-builder
+```
+Or open VS Code, go to File > Open Folder and select the project directory.
+
+3. **Configure VS Code Settings**
+   - Press `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (Mac)
+   - Type "settings" and select "Preferences: Open Settings (JSON)"
+   - Add these recommended settings:
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
+```
 
 ## Step-by-Step Setup Guide
 
@@ -85,16 +115,18 @@ No special environment variables are required for local development.
    - Ensure Tailwind CSS is properly configured
    - Check tailwind.config.ts for custom theme settings
 
-## Development Tips
+## VS Code Debugging
 
-1. **VS Code Extensions**
-   - Install "Tailwind CSS IntelliSense"
-   - Install "ESLint"
-   - Install "Prettier"
+1. **Launch Configuration**
+   - Press F5 or go to Run > Start Debugging
+   - Select "Chrome" as the debug configuration
+   - The development server must be running (`npm run dev`)
 
-2. **Browser DevTools**
-   - Use React Developer Tools extension
-   - Enable source maps in browser
+2. **Debugging Tips**
+   - Use breakpoints by clicking the left margin in VS Code
+   - Use the Debug Console (View > Debug Console)
+   - Watch variables in the Debug sidebar
+   - Use the VS Code integrated terminal (View > Terminal)
 
 ## Getting Help
 
