@@ -1,7 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Code2, Coffee, Download, Laptop, Sparkles } from "lucide-react";
-import { useToast } from "@/components/ui/use-toast";
+import { Code2, Coffee, Laptop, Sparkles } from "lucide-react";
 import { ResumeTemplate } from "@/types/resume";
 
 interface HeroSectionProps {
@@ -9,54 +7,6 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ selectedTemplate }: HeroSectionProps) => {
-  const { toast } = useToast();
-
-  const handleDownload = () => {
-    if (!selectedTemplate) {
-      toast({
-        variant: "destructive",
-        title: "No Template Selected",
-        description: "Please select a template first before downloading your CV.",
-      });
-      return;
-    }
-
-    const cvUrl = "/Ritesh_Kushwaha_CV.pdf";
-
-    // Check if file exists
-    fetch(cvUrl)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('CV file not found');
-        }
-        return response.blob();
-      })
-      .then(blob => {
-        // Create a temporary link element
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = "Ritesh_Kushwaha_CV.pdf";
-        
-        // Append to document, trigger click, and remove
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
-        toast({
-          title: "Download Started",
-          description: "Your CV download should begin shortly.",
-        });
-      })
-      .catch(error => {
-        toast({
-          variant: "destructive",
-          title: "Download Failed",
-          description: "CV file not found. Please try again later or contact for support.",
-        });
-        console.error('Download error:', error);
-      });
-  };
-
   return (
     <div className="bg-gradient-to-br from-purple-100 to-indigo-50 py-8 sm:py-16 px-4 sm:px-6 lg:px-8">
       <motion.div 
@@ -85,17 +35,6 @@ const HeroSection = ({ selectedTemplate }: HeroSectionProps) => {
             "When I'm not implementing real-time animal recognition systems or crafting food ordering platforms, 
             you can find me solving problems faster than my coffee gets cold! 🚀"
           </p>
-        </div>
-
-        <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-          <Button 
-            variant="outline"
-            className="border-purple-600 text-purple-600 hover:bg-purple-50 w-full sm:w-auto"
-            size="lg"
-            onClick={handleDownload}
-          >
-            <Download className="mr-2 h-4 w-4" /> Download CV
-          </Button>
         </div>
       </motion.div>
     </div>
