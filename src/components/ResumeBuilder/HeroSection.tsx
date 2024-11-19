@@ -11,7 +11,7 @@ const HeroSection = ({ selectedTemplate }: HeroSectionProps) => {
     <div className="relative bg-gradient-to-br from-purple-100 to-indigo-50 py-8 sm:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Coding Background */}
       <div 
-        className="absolute inset-0 opacity-5 select-none pointer-events-none"
+        className="absolute inset-0 opacity-10 select-none pointer-events-none"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-size='14' fill='%236B46C1'%3E%7B %7D %3C/%3E const if else function return import export class interface type let var%3C/text%3E%3C/svg%3E")`,
           backgroundSize: '200px 200px',
