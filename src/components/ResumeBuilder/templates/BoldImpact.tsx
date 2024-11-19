@@ -65,8 +65,8 @@ const BoldImpact = ({ data }: { data: ResumeData }) => {
 
         <div className="md:col-span-4 space-y-8">
           {/* Education section */}
-          <section className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700">
-            <h2 className="text-2xl font-bold mb-4">Education</h2>
+          <section className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-yellow-500/50 transition-all">
+            <h2 className="text-2xl font-bold mb-4 tracking-wide">Education</h2>
             {data.education.map((edu, index) => (
               <div key={index} className="mb-4 last:mb-0">
                 <h3 className="font-bold">{edu.school}</h3>
@@ -76,14 +76,17 @@ const BoldImpact = ({ data }: { data: ResumeData }) => {
             ))}
           </section>
 
-          {/* Skills and Languages in horizontal layout */}
+          {/* Skills and Languages in a Horizontal Grid */}
           <div className="grid grid-cols-2 gap-4">
-            <section className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-yellow-500/50 transition-colors">
-              <h2 className="text-2xl font-bold mb-6">Skills</h2>
-              <div className="space-y-4">
+            {/* Skills Section */}
+            <section className="col-span-1 bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-yellow-500/50 hover:bg-gray-800 hover:shadow-md transition-all">
+              <h2 className="text-2xl font-bold mb-4 tracking-wide">Skills</h2>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                 {data.skills.map((skill, index) => (
                   <div key={index} className="flex justify-between items-center group">
-                    <span className="text-gray-400 group-hover:text-white transition-colors">{skill.name}</span>
+                    <span className="text-gray-400 font-medium group-hover:text-white transition-colors">
+                      {skill.name}
+                    </span>
                     <span className="text-yellow-500 text-sm font-medium px-2 py-1 bg-yellow-500/10 rounded-full">
                       {skill.level}
                     </span>
@@ -92,12 +95,15 @@ const BoldImpact = ({ data }: { data: ResumeData }) => {
               </div>
             </section>
 
-            <section className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-yellow-500/50 transition-colors">
-              <h2 className="text-2xl font-bold mb-6">Languages</h2>
-              <div className="space-y-4">
+            {/* Languages Section */}
+            <section className="col-span-1 bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-yellow-500/50 hover:bg-gray-800 hover:shadow-md transition-all">
+              <h2 className="text-2xl font-bold mb-4 tracking-wide">Languages</h2>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                 {data.languages.map((lang, index) => (
                   <div key={index} className="flex justify-between items-center group">
-                    <span className="text-gray-400 group-hover:text-white transition-colors">{lang.language}</span>
+                    <span className="text-gray-400 font-medium group-hover:text-white transition-colors">
+                      {lang.language}
+                    </span>
                     <span className="text-yellow-500 text-sm font-medium px-2 py-1 bg-yellow-500/10 rounded-full">
                       {lang.proficiency}
                     </span>
