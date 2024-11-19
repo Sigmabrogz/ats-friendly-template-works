@@ -31,17 +31,17 @@ const HeroSection = ({ selectedTemplate }: HeroSectionProps) => {
         </div>
         
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-2 sm:mb-4">
-          Hey! I'm <span className="text-purple-600">Ritesh Kushwaha</span> 
+          Welcome to Ritesh's Resume Hub! 
           <Sparkles className="inline-block ml-2 h-6 w-6 sm:h-8 sm:w-8 text-yellow-400 animate-spin" />
         </h1>
         
         <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-4 sm:mb-8">
-          A Computer Engineering graduate who turns coffee into code and dreams into digital reality!
+          A Computer Engineering graduate who loves turning complex problems into elegant solutions
         </p>
         
         <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 sm:p-6 mb-6 sm:mb-8 max-w-2xl mx-auto">
           <p className="text-gray-700 text-base sm:text-lg">
-            "Plot twist: I got tired of recruiters playing 'Resume Roulette' with different formats, so I built this website! Now you can view my resume in different styles faster than you can say 'cultural fit'. Who says problem-solving can't be fun? 😎 Pick your favorite style below, and let's skip the 'which format do they prefer' drama!" 
+            "Dear Recruiter, I know how precious your time is, so I've made it super easy! Below you'll find my resume in different formats - because why settle for one when you can have the perfect style for your needs? Just pick the format that speaks to you, and let's fast-track this journey together! 🚀 No more back-and-forth about resume formats - how's that for efficiency? 😊"
           </p>
         </div>
       </motion.div>
