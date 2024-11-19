@@ -2,11 +2,25 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Code2, Coffee, Download, Laptop, Sparkles } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import { ResumeTemplate } from "@/types/resume";
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  selectedTemplate?: ResumeTemplate;
+}
+
+const HeroSection = ({ selectedTemplate }: HeroSectionProps) => {
   const { toast } = useToast();
 
   const handleDownload = () => {
+    if (!selectedTemplate) {
+      toast({
+        variant: "destructive",
+        title: "No Template Selected",
+        description: "Please select a template first before downloading your CV.",
+      });
+      return;
+    }
+
     const cvUrl = "/Ritesh_Kushwaha_CV.pdf";
 
     // Check if file exists
