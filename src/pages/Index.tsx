@@ -5,6 +5,7 @@ import ProfessionalClassic from "@/components/ResumeBuilder/templates/Profession
 import CreativeTech from "@/components/ResumeBuilder/templates/CreativeTech";
 import BoldImpact from "@/components/ResumeBuilder/templates/BoldImpact";
 import ElegantSimple from "@/components/ResumeBuilder/templates/ElegantSimple";
+import HeroSection from "@/components/ResumeBuilder/HeroSection";
 import { ResumeData, ResumeTemplate } from "@/types/resume";
 
 const Index = () => {
@@ -89,14 +90,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-resume-light">
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-resume-primary">
-            Resume Builder
-          </h1>
-        </div>
-      </header>
-
+      <HeroSection />
+      
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
           <div className="mb-8">
