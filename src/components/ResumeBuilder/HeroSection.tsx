@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import { Code2, Coffee, Laptop, Sparkles, Bug, Download, ArrowRight } from "lucide-react";
+import { Code2, Coffee, Laptop, Sparkles, Bug } from "lucide-react";
 import { ResumeTemplate } from "@/types/resume";
-import { Button } from "@/components/ui/button";
 
 interface HeroSectionProps {
   selectedTemplate?: ResumeTemplate;
@@ -79,23 +78,6 @@ const HeroSection = ({ selectedTemplate }: HeroSectionProps) => {
             Hey Recruiter, I get it. Choosing the right résumé format is a pain. So, I did the hard part for you—I made all the templates. Pick whichever one you like, or try them all. Either way, the content is pure Ritesh-quality brilliance. Let's save time and get straight to impressing you!
           </p>
         </motion.div>
-        
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-          <Button 
-            size="lg"
-            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold"
-          >
-            Pick Your Favorite <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-          <Button 
-            size="lg"
-            variant="outline"
-            className="border-purple-600 text-purple-600 hover:bg-purple-50"
-          >
-            Start Reading <Download className="ml-2 h-5 w-5" />
-          </Button>
-        </div>
         
         {/* Fine Print */}
         <motion.div
