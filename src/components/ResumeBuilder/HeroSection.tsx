@@ -35,13 +35,6 @@ const HeroSection = () => {
 
         <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
           <Button 
-            variant="default"
-            className="bg-purple-600 hover:bg-purple-700 w-full sm:w-auto"
-            size="lg"
-          >
-            View My Projects
-          </Button>
-          <Button 
             variant="outline"
             className="border-purple-600 text-purple-600 hover:bg-purple-50 w-full sm:w-auto"
             size="lg"
