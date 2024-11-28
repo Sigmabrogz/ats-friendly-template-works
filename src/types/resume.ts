@@ -52,3 +52,5 @@ export interface ResumeData {
     link?: string;
   }[];
 }
+
+export interface ParsedResumeData extends Omit<ResumeData, 'template'> {}
