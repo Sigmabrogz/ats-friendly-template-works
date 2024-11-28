@@ -23,7 +23,9 @@ const ResumeUpload = ({ onResumeData }: ResumeUploadProps) => {
         const arrayBuffer = await file.arrayBuffer();
         const pdfDoc = await PDFDocument.load(arrayBuffer);
         const pages = pdfDoc.getPages();
-        text = await pages[0].getText(); // Basic example - you'd want to get text from all pages
+        // Since pdf-lib doesn't provide direct text extraction, we'll need to handle this differently
+        // For now, we'll add a placeholder message
+        text = "PDF text extraction requires additional processing. Please upload a DOCX or TXT file for better results.";
       } else if (file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
         const arrayBuffer = await file.arrayBuffer();
         const result = await mammoth.extractRawText({ arrayBuffer });
